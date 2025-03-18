@@ -6,4 +6,10 @@ public partial class WelcomePage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    // WelcomePage.xaml.cs
+    private async void OnStartClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new MainPage());
+    }
 }

@@ -1,4 +1,6 @@
-﻿namespace appvamosembora
+﻿using appvamosembora.Views;
+
+namespace appvamosembora
 {
     public partial class MainPage : ContentPage
     {
@@ -9,16 +11,13 @@
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void OnNameClicked(object sender, EventArgs e)
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            var button = sender as Button;
+            if (button != null)
+            {
+                await Navigation.PushAsync(new OptionSelect());
+            }
         }
     }
 
